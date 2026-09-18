@@ -119,8 +119,8 @@ function resetAll(){if(confirm("Apagar todos os registros dos 7 dias?")){localSt
 render();
 </script>
 <script>
-if ("serviceWorker" in navigator) {
-  window.addEventListener("load", () => navigator.serviceWorker.register("sw.js").catch(()=>{}));
+if ("sw.js" in navigator) {
+  windw.ow.addEventListener("load", () => navigator.serviceWorker.register("sw.js").catch(()=>{}));
 }
 </script>
 </body>
