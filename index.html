@@ -3,125 +3,57 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="theme-color" content="#111827">
+<meta name="theme-color" content="#07111c">
+<meta name="description" content="RPG da Vida — produtividade, estudo, exercício, gaming e recuperação.">
 <link rel="manifest" href="manifest.json">
-<link rel="apple-touch-icon" href="icon-192.png">
-<title>Controle de Apetite — 7 Dias</title>
+<link rel="icon" href="icon.svg" type="image/svg+xml">
+<title>RPG da Vida</title>
 <style>
-:root{--bg:#f4f6f8;--card:#fff;--text:#17202a;--muted:#667085;--line:#e5e7eb;--accent:#2563eb;--ok:#16a34a;--warn:#d97706;--danger:#dc2626}
-*{box-sizing:border-box}body{margin:0;background:var(--bg);font-family:system-ui,-apple-system,Segoe UI,sans-serif;color:var(--text)}
-header{background:#111827;color:#fff;padding:22px 18px 18px;position:sticky;top:0;z-index:5}
-h1{font-size:22px;margin:0 0 5px}.sub{font-size:13px;color:#cbd5e1}
-main{max-width:760px;margin:auto;padding:14px 14px 40px}
-.tabs{display:flex;gap:7px;overflow:auto;padding:3px 0 12px}.tab{border:1px solid var(--line);background:var(--card);border-radius:12px;padding:10px 13px;white-space:nowrap;font-weight:700}.tab.active{background:var(--accent);color:white;border-color:var(--accent)}
-.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:16px;margin:10px 0;box-shadow:0 2px 8px #00000008}
-.card h2{font-size:17px;margin:0 0 12px}.grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
-label{font-size:13px;font-weight:700;display:block}.full{grid-column:1/-1}
-input,select,textarea{width:100%;margin-top:6px;border:1px solid #d0d5dd;border-radius:10px;padding:11px;font:inherit;background:#fff;color:var(--text)}
-textarea{min-height:80px;resize:vertical}
-.meals{display:grid;gap:10px}.meal{border:1px solid var(--line);border-radius:12px;padding:12px}
-.meal strong{display:block;margin-bottom:7px}.meal .food{font-size:14px;line-height:1.45;color:#344054}
-.row{display:flex;gap:8px;flex-wrap:wrap}.btn{border:0;border-radius:11px;padding:11px 14px;font-weight:750;background:var(--accent);color:#fff}.btn.secondary{background:#eef2f6;color:#17202a}.btn.danger{background:#fee2e2;color:#991b1b}
-.scale{display:grid;grid-template-columns:repeat(11,1fr);gap:4px;margin-top:7px}.scale button{padding:9px 0;border:1px solid var(--line);background:#fff;border-radius:8px}.scale button.sel{background:var(--accent);color:#fff;border-color:var(--accent)}
-.progress{height:10px;background:#e5e7eb;border-radius:20px;overflow:hidden}.bar{height:100%;background:var(--accent);width:0}
-.small{font-size:12px;color:var(--muted)}.status{font-weight:750}.ok{color:var(--ok)}.warn{color:var(--warn)}
-ul{margin:8px 0;padding-left:20px}.check{display:flex;align-items:center;gap:8px;font-weight:500;margin:9px 0}.check input{width:auto;margin:0}
-footer{font-size:12px;color:var(--muted);padding:5px 2px 20px}
-@media(max-width:480px){.grid{grid-template-columns:1fr}.full{grid-column:auto}}
-</style>
-</head>
+:root{--bg:#07111c;--card:#0c1926;--card2:#0a1520;--line:#173047;--text:#edf6ff;--muted:#91a7bb;--cyan:#22d3ee;--green:#34e58a;--blue:#3aa7ff;--purple:#8b6cff;--orange:#ffb84d;--red:#ff4d64;--shadow:0 12px 30px rgba(0,0,0,.28)}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(circle at 50% -10%,#132b40 0,#07111c 45%,#050c13 100%);color:var(--text);font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;min-height:100vh}button,input{font:inherit}button{cursor:pointer}.app{max-width:1180px;margin:auto;padding:18px 18px 92px}.top{display:flex;justify-content:space-between;gap:16px;align-items:center;padding:10px 4px 20px}.profile{display:flex;gap:14px;align-items:center}.avatar{width:62px;height:62px;border-radius:50%;display:grid;place-items:center;background:linear-gradient(145deg,#182c42,#07101a);border:3px solid #46617c;font-size:30px;box-shadow:0 0 0 5px rgba(58,167,255,.06)}h1{font-size:20px;margin:0 0 5px}.sub{color:var(--muted);font-size:13px}.gear{border:0;background:#0b1825;color:#c9d8e6;border-radius:12px;padding:11px 13px;font-size:20px}.xpbox{min-width:260px}.xptext{display:flex;justify-content:space-between;font-size:13px;color:var(--muted);margin-bottom:7px}.bar{height:10px;background:#1b2b3b;border-radius:99px;overflow:hidden}.fill{height:100%;border-radius:99px;background:linear-gradient(90deg,var(--blue),var(--cyan));transition:width .4s}.grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px}.card{background:linear-gradient(145deg,rgba(13,27,41,.97),rgba(7,17,28,.97));border:1px solid var(--line);border-radius:18px;padding:17px;box-shadow:var(--shadow)}.wide{grid-column:1/-1}.title{display:flex;justify-content:space-between;align-items:center;margin-bottom:14px}.title h2{font-size:16px;margin:0}.title small{color:var(--muted)}.attrs{display:grid;grid-template-columns:repeat(6,1fr);gap:10px}.attr{background:#0a1724;border:1px solid #173149;border-radius:14px;padding:12px}.attr .ico{font-size:24px}.attr b{display:block;margin-top:6px}.attr span{font-size:12px;color:var(--muted)}.mini{height:7px;background:#1b2b3b;border-radius:9px;margin-top:10px;overflow:hidden}.mini i{display:block;height:100%;border-radius:9px}.missions{display:flex;flex-direction:column;gap:8px}.mission{display:flex;align-items:center;gap:11px;padding:10px;border-bottom:1px solid #14283a}.mission:last-child{border-bottom:0}.check{width:27px;height:27px;border-radius:50%;border:2px solid #48627a;background:transparent;color:#061018;display:grid;place-items:center;flex:0 0 auto}.mission.done .check{background:var(--green);border-color:var(--green)}.mission.done .mtxt{text-decoration:line-through;opacity:.55}.mtxt{flex:1}.mtxt b{display:block;font-size:13px}.mtxt small{color:var(--muted)}.xp{color:var(--green);font-weight:800;font-size:13px}.timer{text-align:center}.dial{width:205px;height:205px;border-radius:50%;margin:7px auto 14px;padding:12px;background:conic-gradient(var(--green) var(--p),#1b3341 0);display:grid;place-items:center}.dialin{width:100%;height:100%;border-radius:50%;background:#07131e;display:grid;place-items:center;border:1px solid #183143}.time{font-size:42px;font-weight:800;letter-spacing:1px}.mode{font-size:12px;color:var(--muted)}.timer button,.primary{border:1px solid var(--green);background:#08241e;color:var(--green);padding:12px 18px;border-radius:12px;font-weight:800}.timer-controls{display:flex;gap:8px;justify-content:center}.timer-controls button{border-color:#29465a;background:#0b1926;color:#cfe2ef}.streak{display:grid;grid-template-columns:repeat(7,1fr);gap:8px}.day{padding:9px 5px;border:1px solid #20384c;border-radius:11px;text-align:center;font-size:11px;color:var(--muted)}.day.ok{border-color:#0ea56b;background:#09261f;color:#65f0b2}.day.bad{border-color:#9d3040;background:#2b1017;color:#ff7386}.day .dot{font-size:18px;display:block;margin-top:4px}.progressrow{display:grid;grid-template-columns:100px 1fr 42px;gap:10px;align-items:center;margin:13px 0;font-size:12px}.history{width:100%;border-collapse:collapse}.history td{padding:10px 5px;border-bottom:1px solid #14283a;font-size:12px}.history td:last-child{text-align:right;color:var(--green);font-weight:800}.bottom{position:fixed;bottom:0;left:0;right:0;background:rgba(5,13,21,.95);backdrop-filter:blur(14px);border-top:1px solid #173047;display:flex;justify-content:center;z-index:5}.nav{width:min(700px,100%);display:flex;justify-content:space-around}.nav button{flex:1;border:0;background:none;color:#8098ad;padding:11px 4px 10px;font-size:11px}.nav button.active{color:var(--cyan)}.nav span{display:block;font-size:19px;margin-bottom:2px}.toast{position:fixed;left:50%;bottom:76px;transform:translateX(-50%);background:#102637;border:1px solid #2a516d;padding:10px 15px;border-radius:12px;opacity:0;pointer-events:none;transition:.25s;z-index:10}.toast.show{opacity:1}.modal{position:fixed;inset:0;background:rgba(0,0,0,.7);display:none;place-items:center;padding:20px;z-index:20}.modal.show{display:grid}.modalbox{width:min(420px,100%);background:#0b1825;border:1px solid #21445e;border-radius:18px;padding:20px}.modalbox input{width:100%;background:#07131e;color:white;border:1px solid #27445a;border-radius:10px;padding:12px;margin:8px 0 14px}.actions{display:flex;gap:8px;justify-content:flex-end}.actions button{padding:10px 14px;border-radius:10px;border:1px solid #29465a;background:#10202e;color:white}.actions .save{background:#0b3c32;border-color:var(--green);color:var(--green)}
+@media(max-width:850px){.attrs{grid-template-columns:repeat(3,1fr)}.grid{grid-template-columns:1fr}.wide{grid-column:auto}.xpbox{min-width:190px}}
+@media(max-width:560px){.app{padding:12px 11px 88px}.top{align-items:flex-start}.avatar{width:52px;height:52px;font-size:25px}.xpbox{position:absolute;top:82px;left:73px;right:55px;min-width:0}h1{font-size:17px}.sub{font-size:11px}.attrs{grid-template-columns:repeat(2,1fr)}.attr{padding:10px}.dial{width:180px;height:180px}.time{font-size:36px}.progressrow{grid-template-columns:86px 1fr 35px}}
+</style></head>
 <body>
-<header>
-<h1>🌱 Controle de Apetite</h1>
-<div class="sub">Plano de 7 dias • fome, refeições, intestino, sono e ansiedade</div>
-</header>
-<main>
-<div class="tabs" id="tabs"></div>
-<div id="content"></div>
-<div class="card">
-<h2>📊 Progresso da semana</h2>
-<div class="progress"><div class="bar" id="bar"></div></div>
-<p id="progressText" class="small"></p>
-<div class="row">
-<button class="btn secondary" onclick="exportData()">Exportar dados</button>
-<button class="btn danger" onclick="resetAll()">Apagar registros</button>
-</div>
-</div>
-<footer>Este painel é para acompanhamento pessoal e não substitui avaliação médica. Procure atendimento se houver perda de peso involuntária, vômitos, sangue nas fezes, dor persistente, dificuldade para engolir ou piora importante.</footer>
-</main>
+<div class="app">
+<header class="top"><div class="profile"><div class="avatar">⚔️</div><div><h1 id="name">Meu RPG da Vida</h1><div class="sub">Nível <b id="level">1</b> · <span id="rank">Recruta</span></div></div></div><div class="xpbox"><div class="xptext"><span>XP <b id="xp">0</b></span><span id="next">100 XP</span></div><div class="bar"><div class="fill" id="xpbar" style="width:0%"></div></div></div><button class="gear" id="settings">⚙️</button></header>
+<section class="card wide"><div class="title"><h2>📊 ATRIBUTOS</h2><small>evolução geral</small></div><div class="attrs" id="attrs"></div></section>
+<div class="grid">
+<section class="card"><div class="title"><h2>🎯 MISSÕES DO DIA</h2><small id="missioncount">0/0</small></div><div class="missions" id="missions"></div></section>
+<section class="card timer"><div class="title"><h2>⏱️ CRONÔMETRO DE FOCO</h2><small>50 min</small></div><div class="dial" id="dial" style="--p:0deg"><div class="dialin"><div><div class="mode" id="timermode">FOCO</div><div class="time" id="time">50:00</div></div></div></div><div class="timer-controls"><button id="start">▶ Iniciar</button><button id="reset">↺ Resetar</button></div></section>
+<section class="card"><div class="title"><h2>🔥 SEQUÊNCIA</h2><small id="streaklabel">0 dias</small></div><div class="streak" id="streak"></div><div style="margin-top:12px;color:#64efb1;font-size:12px">Cada dia conta. Mesmo um dia difícil não apaga sua evolução.</div></section>
+<section class="card"><div class="title"><h2>📈 PROGRESSO SEMANAL</h2><small id="weeklabel">0/7</small></div><div id="weekly"></div></section>
+<section class="card wide"><div class="title"><h2>🕘 HISTÓRICO RECENTE</h2><small id="historycount"></small></div><table class="history"><tbody id="history"></tbody></table></section>
+</div></div>
+<nav class="bottom"><div class="nav"><button class="active"><span>⌂</span>Início</button><button onclick="showToast('Missões estão na tela inicial')"><span>☑</span>Missões</button><button onclick="showToast('Estatísticas serão expandidas em breve')"><span>▥</span>Estatísticas</button><button onclick="showToast('Calendário em breve')"><span>▦</span>Calendário</button><button id="settings2"><span>⚙</span>Config.</button></div></nav>
+<div class="toast" id="toast"></div>
+<div class="modal" id="modal"><div class="modalbox"><h2>⚙️ Configurações</h2><label>Nome do perfil</label><input id="nameinput" maxlength="30" placeholder="Meu RPG da Vida"><div class="actions"><button id="close">Cancelar</button><button class="save" id="save">Salvar</button></div></div></div>
 <script>
-const meals=[
-["07:00–08:00","🌅 Café da manhã",["Banana + aveia + leite/iogurte","1 ovo + pão","Alternativa: cuscuz com ovo"]],
-["10:00–10:30","🍌 Lanche",["Banana + aveia","Mamão","Iogurte + fruta","Pão com queijo","Vitamina de banana com leite e aveia"]],
-["12:00–13:00","🍛 Almoço",["Arroz ou macarrão/batata/cuscuz","Feijão","Ovo, frango, carne ou peixe","Verdura/legume","Fruta se quiser depois"]],
-["16:00–16:30","🥛 Lanche da tarde",["Vitamina de banana + leite + aveia","Pão + ovo/queijo","Fruta"]],
-["19:00–20:00","🌙 Jantar",["Arroz + feijão + ovo + legumes","Arroz + frango + feijão","Macarrão + carne/frango + legumes","Cuscuz + ovos + feijão"]],
-["22:00–23:00","🌃 Antes de dormir (opcional)",["Leite + banana","Iogurte + fruta","Pão + queijo","Fruta + aveia","Somente se estiver com fome e confortável"]]
-];
-const tips=["💧 Água ao longo do dia; evite grandes volumes imediatamente antes das refeições.","🥣 Aumente fibras gradualmente: mamão, frutas, aveia, feijão, verduras e legumes.","🚶 Uma caminhada leve durante o dia pode ajudar o intestino.","🚽 Reserve um momento tranquilo para evacuar, sem fazer força excessiva.","😴 Tente manter horário parecido para acordar todos os dias.","🚫 Não use estimulante de apetite ou laxante por conta própria."];
-
-let data=JSON.parse(localStorage.getItem("apetite7")||"{}");
-let day=Number(localStorage.getItem("apetiteDay")||1);
-function save(){localStorage.setItem("apetite7",JSON.stringify(data));updateProgress()}
-function d(){return data[day] ||= {fomeManha:null,saci:null,fomeNoite:null,evacuou:"",sono:"",ansiedade:null,peso:"",agua:"",caminhada:false,refeicoes:0,obs:""}}
-function scale(field){
- let v=d()[field]; let s=`<div class="scale">`;
- for(let i=0;i<=10;i++)s+=`<button class="${v===i?'sel':''}" onclick="setScale('${field}',${i})">${i}</button>`;
- return s+"</div><div class='small'>0 = nada • 10 = muito</div>";
-}
-function setScale(f,v){d()[f]=v;save();render()}
-function renderTabs(){
- tabs.innerHTML="";
- for(let i=1;i<=7;i++){let b=document.createElement("button");b.className="tab "+(day===i?"active":"");b.textContent="Dia "+i;b.onclick=()=>{day=i;localStorage.setItem("apetiteDay",day);render()};tabs.appendChild(b)}
-}
-function render(){
- renderTabs();let x=d();
- content.innerHTML=`
- <div class="card"><h2>📅 Dia ${day}</h2>
- <div class="grid">
- <div><label>Data<input type="date" value="${x.data||""}" onchange="d().data=this.value;save()"></label></div>
- <div><label>Peso (kg), opcional<input type="number" step="0.1" inputmode="decimal" value="${x.peso}" onchange="d().peso=this.value;save()" placeholder="ex.: 58"></label></div>
- </div></div>
- <div class="card"><h2>🍽️ Como está seu apetite?</h2>
- <label>Fome ao acordar</label>${scale("fomeManha")}
- <br><label>Você ficou cheio rapidamente?</label>
- <select onchange="d().saci=this.value;save()"><option value="">Selecione</option><option ${x.saci==="Não"?"selected":""}>Não</option><option ${x.saci==="Um pouco"?"selected":""}>Um pouco</option><option ${x.saci==="Sim"?"selected":""}>Sim</option><option ${x.saci==="Muito"?"selected":""}>Muito</option></select>
- <br><label>Fome à noite</label>${scale("fomeNoite")}</div>
- <div class="card"><h2>💩 Intestino</h2>
- <label>Evacuou hoje?</label><select onchange="d().evacuou=this.value;save()"><option value="">Selecione</option><option ${x.evacuou==="Sim"?"selected":""}>Sim</option><option ${x.evacuou==="Não"?"selected":""}>Não</option></select>
- <p class="small">Observe também se as fezes estavam muito duras ou se precisou fazer muita força.</p></div>
- <div class="card"><h2>😴 Sono e ansiedade</h2>
- <div class="grid">
- <div><label>Horas de sono<input type="number" step="0.5" min="0" max="24" value="${x.sono}" onchange="d().sono=this.value;save()" placeholder="ex.: 7"></label></div>
- <div><label>Ansiedade hoje (0–10)</label>${scale("ansiedade")}</div>
- </div></div>
- <div class="card"><h2>🥗 Refeições do dia</h2><div class="meals">
- ${meals.map((m,i)=>`<div class="meal"><strong>${m[0]} — ${m[1]}</strong><div class="food">${m[2].join(" • ")}</div><label class="check"><input type="checkbox" ${x["m"+i]?"checked":""} onchange="d()['m'+${i}]=this.checked;d().refeicoes=Object.keys(d()).filter(k=>/^m\\d+$/.test(k)&&d()[k]).length;save();render()"> Consegui fazer esta refeição</label></div>`).join("")}
- </div></div>
- <div class="card"><h2>💧 Hábitos</h2>
- <label>Água — quanto você bebeu aproximadamente?<input type="text" value="${x.agua}" onchange="d().agua=this.value;save()" placeholder="ex.: 1,5 L"></label>
- <label class="check"><input type="checkbox" ${x.caminhada?"checked":""} onchange="d().caminhada=this.checked;save()"> Fiz uma caminhada/atividade leve</label>
- </div>
- <div class="card"><h2>📝 Anotações</h2><textarea onchange="d().obs=this.value;save()" placeholder="Ex.: tive pouco apetite no almoço, fiquei muito cheio, dormi mal...">${x.obs}</textarea></div>
- <div class="card"><h2>💡 Lembretes</h2><ul>${tips.map(t=>"<li>"+t+"</li>").join("")}</ul></div>`;
- updateProgress();
-}
-function updateProgress(){
- let completed=0;
- for(let i=1;i<=7;i++){let x=data[i];if(x && (x.fomeManha!==null||x.evacuou||x.sono||x.obs||x.refeicoes))completed++}
- let pct=Math.round(completed/7*100);bar.style.width=pct+"%";progressText.textContent=`${completed} de 7 dias registrados (${pct}%).`;
-}
-function exportData(){
- let blob=new Blob([JSON.stringify(data,null,2)],{type:"application/json"});
- let a=document.createElement("a");a.href=URL.createObjectURL(blob);a.download="controle-apetite-7-dias.json";a.click();URL.revokeObjectURL(a.href);
-}
-function resetAll(){if(confirm("Apagar todos os registros dos 7 dias?")){localStorage.removeItem("apetite7");data={};day=1;localStorage.setItem("apetiteDay",1);render()}}
-render();
-</script>
-<script>
-if ("sw.js" in navigator) {
-  windw.ow.addEventListener("load", () => navigator.serviceWorker.register("sw.js").catch(()=>{}));
-}
-</script>
-</body>
-</html>
+const KEY='rpg-vida-v1';
+const defaultState={name:'Meu RPG da Vida',xp:0,missions:{},history:[],lastDone:null,streak:0,week:{study:0,exercise:0,org:0,gaming:0,sleep:0}};
+let s=JSON.parse(localStorage.getItem(KEY)||'null')||structuredClone(defaultState);
+const missions=[
+{id:'wake',label:'Acordar no horário',desc:'Comece o dia com o pé direito.',xp:30,a:'DISC'},
+{id:'exercise',label:'Treino (20–40 min)',desc:'Seu corpo é sua base.',xp:40,a:'FOR'},
+{id:'study1',label:'Estudo — 1º bloco (50 min)',desc:'Conhecimento é poder.',xp:50,a:'INT'},
+{id:'study2',label:'Estudo — 2º bloco (50 min)',desc:'Sua evolução depende de hoje.',xp:50,a:'INT'},
+{id:'org',label:'Organizar quarto / tarefas',desc:'Ambiente limpo, mente focada.',xp:20,a:'ORG'},
+{id:'gaming',label:'Jogar (1–3 h) com foco',desc:'Relaxe, mas evolua.',xp:20,a:'SKILL'},
+{id:'sleep',label:'Dormir no horário',desc:'Amanhã é um novo dia.',xp:50,a:'REC'}];
+const attrs={INT:['🧠','Inteligência','Estudo','var(--blue)'],FOR:['💪','Força','Exercício','var(--green)'],ORG:['🛠️','Organização','Tarefas','var(--orange)'],SKILL:['🎮','Gaming','Jogo','var(--purple)'],REC:['🛏️','Recuperação','Sono','var(--cyan)'],DISC:['🔥','Disciplina','Constância','var(--red)']};
+function save(){localStorage.setItem(KEY,JSON.stringify(s))}
+function dayKey(d=new Date()){return d.toISOString().slice(0,10)}
+function level(){return Math.floor(s.xp/500)+1} function rank(){return ['Recruta','Aprendiz','Explorador','Veterano','Elite','Mestre'][Math.min(level()-1,5)]}
+function renderAttrs(){let html='';for(const [k,v] of Object.entries(attrs)){let pct=Math.min(95,25+((s.xp/50+k.length*7)%70));html+=`<div class="attr"><div class="ico">${v[0]}</div><b>${k}</b><span>${v[1]} · ${v[2]}</span><div class="mini"><i style="width:${pct}%;background:${v[3]}"></i></div><span>${Math.round(pct)}%</span></div>`}document.getElementById('attrs').innerHTML=html}
+function renderMissions(){let today=s.missions[dayKey()]||{};let done=0;document.getElementById('missions').innerHTML=missions.map(m=>{let ok=!!today[m.id];if(ok)done++;return `<div class="mission ${ok?'done':''}"><button class="check" onclick="toggleMission('${m.id}')">${ok?'✓':''}</button><div class="mtxt"><b>${m.label}</b><small>${m.desc}</small></div><div class="xp">+${m.xp}</div></div>`}).join('');document.getElementById('missioncount').textContent=`${done}/${missions.length} concluídas`}
+function toggleMission(id){let k=dayKey();s.missions[k]??={};if(s.missions[k][id]){delete s.missions[k][id];showToast('Missão desmarcada')}else{let m=missions.find(x=>x.id===id);s.missions[k][id]=true;s.xp+=m.xp;s.history.unshift({date:new Date().toLocaleDateString('pt-BR'),name:m.label,xp:m.xp});s.history=s.history.slice(0,30);if(m.id==='study1'||m.id==='study2')s.week.study++;if(m.id==='exercise')s.week.exercise++;if(m.id==='org')s.week.org++;if(m.id==='gaming')s.week.gaming++;if(m.id==='sleep')s.week.sleep++;showToast(`+${m.xp} XP — ${m.label}`)}save();render()}
+function render(){document.getElementById('name').textContent=s.name;document.getElementById('level').textContent=level();document.getElementById('rank').textContent=rank();document.getElementById('xp').textContent=s.xp%500;document.getElementById('next').textContent=`${500-(s.xp%500)} XP`;document.getElementById('xpbar').style.width=`${(s.xp%500)/5}%`;renderAttrs();renderMissions();renderStreak();renderWeekly();renderHistory()}
+function renderStreak(){let days=['Dom','Seg','Ter','Qua','Qui','Sex','Sáb'];let now=new Date();let h='';for(let i=6;i>=0;i--){let d=new Date(now);d.setDate(now.getDate()-i);let k=dayKey(d),ok=Object.keys(s.missions[k]||{}).length>=4;h+=`<div class="day ${ok?'ok':''}">${d.getDate()}<br>${days[d.getDay()]}<span class="dot">${ok?'✓':'·'}</span></div>`}document.getElementById('streak').innerHTML=h;let cur=0;for(let i=0;i<60;i++){let d=new Date(now);d.setDate(now.getDate()-i);if(Object.keys(s.missions[dayKey(d)]||{}).length>=4)cur++;else if(i>0)break}document.getElementById('streaklabel').textContent=`${cur} dias`}
+function renderWeekly(){const rows=[['Estudo','study','var(--blue)'],['Exercício','exercise','var(--green)'],['Organização','org','var(--orange)'],['Gaming','gaming','var(--purple)'],['Sono','sleep','var(--cyan)']];document.getElementById('weekly').innerHTML=rows.map(r=>{let v=Math.min(7,s.week[r[1]]||0);return `<div class="progressrow"><span>${r[0]}</span><div class="bar"><div class="fill" style="width:${v/7*100}%;background:${r[2]}"></div></div><b>${v}/7</b></div>`}).join('');document.getElementById('weeklabel').textContent=`${rows.reduce((a,r)=>a+Math.min(7,s.week[r[1]]||0),0)}/35`}
+function renderHistory(){document.getElementById('history').innerHTML=(s.history.slice(0,8).map(x=>`<tr><td>${x.date}</td><td>${x.name}</td><td>+${x.xp}</td></tr>`).join(''))||'<tr><td colspan="3">Nenhuma atividade registrada ainda.</td></tr>';document.getElementById('historycount').textContent=`${s.history.length} registros`}
+let seconds=3000,timer=null;function updateTimer(){let m=Math.floor(seconds/60),q=seconds%60;document.getElementById('time').textContent=`${String(m).padStart(2,'0')}:${String(q).padStart(2,'0')}`;document.getElementById('dial').style.setProperty('--p',`${(3000-seconds)/3000*360}deg`)}document.getElementById('start').onclick=()=>{if(timer){clearInterval(timer);timer=null;document.getElementById('start').textContent='▶ Continuar';return}document.getElementById('start').textContent='⏸ Pausar';timer=setInterval(()=>{seconds--;updateTimer();if(seconds<=0){clearInterval(timer);timer=null;seconds=3000;s.xp+=50;s.history.unshift({date:new Date().toLocaleDateString('pt-BR'),name:'Sessão de foco (50 min)',xp:50});s.history=s.history.slice(0,30);save();render();showToast('+50 XP — foco concluído');document.getElementById('start').textContent='▶ Iniciar'}},1000)};document.getElementById('reset').onclick=()=>{clearInterval(timer);timer=null;seconds=3000;updateTimer();document.getElementById('start').textContent='▶ Iniciar'};
+function showToast(t){let e=document.getElementById('toast');e.textContent=t;e.classList.add('show');setTimeout(()=>e.classList.remove('show'),1800)}
+function openModal(){document.getElementById('nameinput').value=s.name;document.getElementById('modal').classList.add('show')}document.getElementById('settings').onclick=openModal;document.getElementById('settings2').onclick=openModal;document.getElementById('close').onclick=()=>document.getElementById('modal').classList.remove('show');document.getElementById('save').onclick=()=>{s.name=document.getElementById('nameinput').value.trim()||'Meu RPG da Vida';save();document.getElementById('modal').classList.remove('show');render();showToast('Perfil salvo')};
+updateTimer();render();
+if('serviceWorker' in navigator) navigator.serviceWorker.register('sw.js').catch(()=>{});
+</script></body></html>
